@@ -1,7 +1,9 @@
 package ExcelUtils;
 
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,16 +17,22 @@ public class ExcelReader {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-//		List<String> s = excelRead();
-//		for(int i=0;i<s.size();i++) {
-//			System.out.println(s.get(i));;
-//		}
+		List<String> s = excelRead();
+		for(int i=0;i<s.size();i++) {
+			System.out.println(s.get(i));;
+		}
 	}
-	public List<String> excelRead() throws Exception {
+	public static List<String> excelRead() throws Exception {
 		List<String> s = new ArrayList<>();
-		String path = System.getProperty("user.dir")+ "\\src\\test\\java\\ExcelUtils.xlsx";
+		String path1 = System.getProperty("user.dir")+  "\\src\\test\\java\\Resources\\" +"ExcelUtils.xlsx";
+		String path = "C:\\Users\\rohit\\OneDrive\\Desktop\\ThreeLeaves1\\ThreeLeaves\\src\\test\\java\\"+"ExcelUtils.xlsx";
+		File file = new File(path);
+		System.out.println(file.exists());
+		//		File file = new File(path + File.separator + "src" + File.separator + "test" + File.separator + "java" + File.separator + "ExcelUtils.xlsx");
+//				System.getProperty("user.dir")+ "\\src\\test\\java\\ExcelUtils.xlsx";
 		System.out.println(path);
-		try(FileInputStream fis = new FileInputStream(path); XSSFWorkbook wb = new XSSFWorkbook(fis);){
+		try(FileInputStream fis = new FileInputStream(path); ){
+			XSSFWorkbook wb = new XSSFWorkbook(fis);
 			XSSFSheet sheet = wb.getSheet("form");
 			XSSFRow row = sheet.getRow(0);
 			int colnum = row.getLastCellNum();
@@ -32,8 +40,13 @@ public class ExcelReader {
 				switch(row.getCell(i).getCellType()) {
 					case STRING:
 						s.add(i, row.getCell(i).toString());
+						break;
 					case NUMERIC:
-						s.add(i, row.getCell(i).toString());
+						long a = (long) row.getCell(i).getNumericCellValue();
+					    s.add(i, String.valueOf(a));
+					    break;
+					default:
+						s.add("");
 				}
 			}
 		}catch(Exception e){
