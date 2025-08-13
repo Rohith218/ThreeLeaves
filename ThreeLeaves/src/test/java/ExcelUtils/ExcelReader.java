@@ -24,13 +24,11 @@ public class ExcelReader {
 	}
 	public static List<String> excelRead() throws Exception {
 		List<String> s = new ArrayList<>();
-		String path1 = System.getProperty("user.dir")+  "\\src\\test\\java\\Resources\\" +"ExcelUtils.xlsx";
+		String path1 = System.getProperty("user.dir") + "\\src\\test\\java\\ExcelUtils.xlsx";
+//		System.out.println(path+"ExcelReader");
 		String path = "C:\\Users\\rohit\\OneDrive\\Desktop\\ThreeLeaves1\\ThreeLeaves\\src\\test\\java\\"+"ExcelUtils.xlsx";
 		File file = new File(path);
 		System.out.println(file.exists());
-		//		File file = new File(path + File.separator + "src" + File.separator + "test" + File.separator + "java" + File.separator + "ExcelUtils.xlsx");
-//				System.getProperty("user.dir")+ "\\src\\test\\java\\ExcelUtils.xlsx";
-		System.out.println(path);
 		try(FileInputStream fis = new FileInputStream(path); ){
 			XSSFWorkbook wb = new XSSFWorkbook(fis);
 			XSSFSheet sheet = wb.getSheet("form");
@@ -51,9 +49,6 @@ public class ExcelReader {
 			}
 		}catch(Exception e){
 			throw new ExcelFileException("Excel File Not Found : "+ path);
-		}
-		for(int i=0;i<s.size();i++) {
-			System.out.println(s.get(i));
 		}
 		return s;
 	}

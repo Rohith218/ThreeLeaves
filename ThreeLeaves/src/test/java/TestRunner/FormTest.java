@@ -14,6 +14,7 @@ import org.testng.asserts.Assertion;
 import DriverSetup.DriverSetup;
 import ExcelUtils.ExcelReader;
 import Results.result;
+import Screenshots.Screenshots;
 import SetDriver.setDriver;
 
 public class FormTest extends DriverSetup{
@@ -35,9 +36,10 @@ public class FormTest extends DriverSetup{
 		System.out.println("Expected "+texx);
 		System.out.println("Actul Test: "+ar.actualResult());
 		Assertion a = new Assertion();
-//		a.assertFalse(texx.equalsIgnoreCase(ar.actualResult()));
-//		a.assertEquals(texx, ar.actualResult().trim().toLowerCase());
 		a.assertEquals(normalize(ar.actualResult()), normalize(texx));
+		Screenshots ss = new Screenshots(driver);
+		ss.screenshots("actualText");
+		Thread.sleep(5000);
 	}
 	public String normalize(String s){ 
 		return s==null?null : s.trim().replaceAll("\\s+"," "); 

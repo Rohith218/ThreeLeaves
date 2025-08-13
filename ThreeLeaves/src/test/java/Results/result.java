@@ -6,8 +6,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.idealized.Javascript;
 
 import ExcelUtils.ExcelReader;
 
@@ -56,6 +58,9 @@ public class result {
 		}
 		 s = "The Advance Amount is Rs."+amt+".\r\n"
 				+ "Your Table is Reserved and Confirmed on "+formatDate(dt)+" at "+slot;
+		 JavascriptExecutor js = (JavascriptExecutor) driver;
+		 js.executeScript("scrollBy(0,4500);");
+		 
 		return s;
 	}
 	public String formatDate(String dt) throws ParseException {
