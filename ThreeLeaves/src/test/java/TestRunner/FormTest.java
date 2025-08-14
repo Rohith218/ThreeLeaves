@@ -3,6 +3,8 @@ package TestRunner;
 import java.text.ParseException;
 import java.util.List;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -20,6 +22,7 @@ import SetDriver.setDriver;
 public class FormTest extends DriverSetup{
 	private WebDriver driver;
 	private String site = "https://webapps.tekstac.com/ThreeLeaves/index.html";
+	private static Logger logs = LogManager.getLogger(FormTest.class);
 	
 	@BeforeMethod
 	public WebDriver setup() throws Exception {
@@ -39,6 +42,7 @@ public class FormTest extends DriverSetup{
 		a.assertEquals(normalize(ar.actualResult()), normalize(texx));
 		Screenshots ss = new Screenshots(driver);
 		ss.screenshots("actualText");
+		logs.fatal("checkingfwrduykgwiyhebguaireufy");
 		Thread.sleep(5000);
 	}
 	public String normalize(String s){ 
@@ -61,10 +65,8 @@ public class FormTest extends DriverSetup{
 	public void teardown() {
 		driver.close();
 	}
-
 	public static void main(String[] args)  {
 		// TODO Auto-generated method stub
-
 	}
 
 }

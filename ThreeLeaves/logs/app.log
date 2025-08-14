@@ -1,0 +1,6 @@
+2025-08-14 23:33:30,884 [main] FATAL TestRunner.FormTest - checkingfwrduykgwiyhebguaireufy
+2025-08-14 23:41:53,392 [main] INFO  SetDriver.setDriver - Entered Mobile Data
+2025-08-14 23:41:53,777 [main] ERROR SetDriver.setDriver - Submit Button is not selected
+2025-08-14 23:44:31,873 [main] INFO  SetDriver.setDriver - Mobile number is entered: [[ChromeDriver: chrome on windows (131d95015f0a01d45a3cd8a3eb805ae9)] -> id: mobileNumber]
+2025-08-14 23:44:32,280 [main] INFO  SetDriver.setDriver - Submit Button clicked
+2025-08-14 23:44:32,510 [main] FATAL TestRunner.FormTest - checkingfwrduykgwiyhebguaireufy

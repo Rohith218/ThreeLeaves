@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -22,6 +24,7 @@ import DriverSetup.DriverSetup;
 public class setDriver extends DriverSetup {
 	protected String name;
 	protected String num;
+	private static Logger logs = LogManager.getLogger(setDriver.class);
 
 	public String getNum() {
 		return num;
@@ -29,7 +32,9 @@ public class setDriver extends DriverSetup {
 
 	public void setNum(String num) {
 		this.num = num;
-		driver.findElement(By.id("mobileNumber")).sendKeys(num);
+		WebElement mob = driver.findElement(By.id("mobileNumber"));
+		mob.sendKeys(num);
+		logs.info("Mobile number is entered: "+mob);
 	}
 
 	protected String email;
@@ -41,6 +46,7 @@ public class setDriver extends DriverSetup {
 	public void setSubmit() {
 		WebElement sub = driver.findElement(By.id("btnSubmit"));
 		sub.click();
+		logs.info("Submit Button clicked");
 	}
 //	public WebDriver driver;
 	public setDriver(WebDriver driver) {
