@@ -5,9 +5,6 @@
 		<parameter name="browsername" value="edge"></parameter>
 		<classes>
 			<class name="TestRunner.FormTest">
-				<methods>
-					<include name="edgeTest"></include>
-				</methods>
 			</class>
 		</classes>
 	</test> <!--
@@ -16,9 +13,6 @@
 		<parameter name="browsername" value="chrome"></parameter>
 		<classes>
 			<class name="TestRunner.FormTest">
-				<methods>
-					<include name="chromeTest"></include>
-				</methods>
 			</class>
 		</classes>
 	</test>
@@ -26,9 +20,6 @@
 		<parameter name="browsername" value="firefox"></parameter>
 		<classes>
 			<class name="TestRunner.FormTest">
-				<methods>
-					<include name="fireFoxTest"></include>
-				</methods>
 			</class>
 		</classes>
 	</test>

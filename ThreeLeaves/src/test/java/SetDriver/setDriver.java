@@ -19,12 +19,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import DriverSetup.DriverSetup;
 
 public class setDriver extends DriverSetup {
 	protected String name;
 	protected String num;
 	private static Logger logs = LogManager.getLogger(setDriver.class);
+//	public static ExtentTest log;
 
 	public String getNum() {
 		return num;
